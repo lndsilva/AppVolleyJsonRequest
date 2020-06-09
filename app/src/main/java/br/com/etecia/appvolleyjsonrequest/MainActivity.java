@@ -20,13 +20,14 @@ public class MainActivity extends AppCompatActivity {
     TextView nome, email, mobile;
     Button btnCarregaDados;
 
-    String url_json = "http://192.168.100.14/Projetovolleyapi/informacoes.php";
+    String url_json = "http://192.168.100.5/Projetovolleyapi/informacoes.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //declaro os objetos xml para java
         nome = findViewById(R.id.txtNome);
         email = findViewById(R.id.txtEmail);
         mobile = findViewById(R.id.txtMobile);
@@ -45,9 +46,11 @@ public class MainActivity extends AppCompatActivity {
                                     email.setText(response.getString("email"));
                                     mobile.setText(response.getString("mobile"));
                                 } catch (JSONException e) {
+                                    Toast.makeText(getApplicationContext(),
+                                            "Nenhum nome encontrado...",
+                                            Toast.LENGTH_SHORT).show();
                                     e.printStackTrace();
                                 }
-
                             }
                         }, new Response.ErrorListener() {
                     @Override
@@ -55,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),
                                 "Erro ao carregar as informações",
                                 Toast.LENGTH_SHORT).show();
+                        error.printStackTrace();
                     }
                 });
                 MySingleton.getInstance(MainActivity.this).addToRequestque(jsonObjectRequest);
