@@ -42,9 +42,10 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onResponse(JSONObject response) {
                                 try {
-                                    nome.setText(response.getString("nome"));
-                                    email.setText(response.getString("email"));
-                                    mobile.setText(response.getString("mobile"));
+                                    //Os nomes recebidos pelo response.get deverá ter o mesmo nome dos campos da tabela
+                                    nome.setText(response.getString("Nome"));
+                                    email.setText(response.getString("Email"));
+                                    mobile.setText(response.getString("Mobile"));
                                 } catch (JSONException e) {
                                     Toast.makeText(getApplicationContext(),
                                             "Nenhum nome encontrado...",
