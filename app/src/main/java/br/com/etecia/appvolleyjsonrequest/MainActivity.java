@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onResponse(JSONObject response) {
                                 try {
-                                    //Os nomes recebidos pelo response.get deverá ter o mesmo nome dos campos da tabela
+                                    //Os nomes recebidos pelo response.get deverá ter o mesmo nome dos campos da tabela php
                                     nome.setText(response.getString("Nome"));
                                     email.setText(response.getString("Email"));
                                     mobile.setText(response.getString("Mobile"));
