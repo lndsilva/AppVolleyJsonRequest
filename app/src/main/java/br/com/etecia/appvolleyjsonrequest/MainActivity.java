@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     TextView nome, email, mobile;
     Button btnCarregaDados;
 
-    String url_json = "http://192.168.100.5/Projetovolleyapi/informacoes.php";
+    String url_json = "http://192.168.100.13/projetovolleyapi/informacoes.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                                     mobile.setText(response.getString("Mobile"));
                                 } catch (JSONException e) {
                                     Toast.makeText(getApplicationContext(),
-                                            "Nenhum nome encontrado...",
+                                            "Nenhuma informação encontrada...",
                                             Toast.LENGTH_SHORT).show();
                                     e.printStackTrace();
                                 }
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(getApplicationContext(),
-                                "Erro ao carregar as informações",
+                                "Erro ao conectar o servidor WEB",
                                 Toast.LENGTH_SHORT).show();
                         error.printStackTrace();
                     }
